@@ -1,0 +1,43 @@
+import { SORT } from '@/constants/search';
+
+export const SORT_OPTIONS = [
+  { value: SORT.PRICE_ASC, label: 'Сначала дешевле' },
+  { value: SORT.STOCK_DESC, label: 'Сначала в наличии' },
+];
+
+export const TEXT = {
+  brandName: 'Favorit Parts',
+  appTitle: 'Поиск автозапчастей',
+  stepBrands: 'Производители',
+  stepOffers: 'Аналоги и предложения',
+  apiKey: 'Ключ покупателя',
+  article: 'Артикул',
+  articlePlaceholder: 'Например, 01089',
+  articleHint: 'Список производителей обновится, когда вы перестанете печатать.',
+  brandsLoading: 'Ищем производителей…',
+  brandsEmpty: 'По этому артикулу ничего не найдено.',
+  brandsIdle: 'Введите артикул — покажем, кто выпускает эту деталь.',
+  offersIdle: 'Выберите производителя, чтобы увидеть цены и остатки.',
+  offersLoading: 'Собираем аналоги и предложения…',
+  offersEmpty: 'По этому производителю нет предложений.',
+  offersFilterEmpty: 'Ничего не подошло под фильтр.',
+  found: 'Показано',
+  filterPlaceholder: 'Название, бренд или артикул',
+  sortLabel: 'Сортировка',
+  warehouse: 'Склад',
+  name: 'Название',
+  brand: 'Производитель',
+  price: 'Цена',
+  stock: 'Остаток',
+  networkError: 'Не удалось выполнить запрос. Проверьте соединение с сетью.',
+  httpError: 'Сервис вернул ошибку',
+  badJson: 'Сервис вернул ответ в неожиданном формате.',
+  brandsFailed: 'Не удалось получить список производителей.',
+  offersFailed: 'Не удалось получить предложения.',
+  stockUnit: 'шт.',
+  unnamed: 'Без названия',
+  dash: '—',
+  errorTitle: 'Страница не открылась',
+  errorText: 'Во время отрисовки что-то сломалось. Обновите страницу — поиск начнётся заново.',
+  errorReload: 'Обновить страницу',
+};

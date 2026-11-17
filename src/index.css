@@ -1,0 +1,264 @@
+:root {
+  --scroll-thumb: 0.25rem;
+  --scroll-pad: 0.75rem;
+  --scroll-native: 2.5rem;
+  --scroll-rail-inset: 0.375rem;
+  --thumb-bg: var(--bs-gray-400);
+  --thumb-bg-hover: var(--bs-gray-500);
+  --thumb-bg-active: var(--bs-gray-600);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: var(--bs-tertiary-bg);
+}
+
+/* --- layout --- */
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.app-header,
+.app-search,
+.app-columns .card-header,
+.card-panel__head,
+.offers-panel__toolbar,
+.offers-panel__meta {
+  flex: none;
+}
+
+.app-main {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+  padding-block: 1rem;
+  overflow: hidden;
+}
+
+.app-columns {
+  display: grid;
+  flex: 1 1 0;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 1rem;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-columns__pane,
+.app-columns .card,
+.app-columns .card-body,
+.card-panel,
+.offers-panel {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-columns .card-body {
+  padding: 0;
+}
+
+.card-panel__head {
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+}
+
+.card-panel__head:empty {
+  display: none;
+}
+
+.offers-panel__toolbar {
+  padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x) 0.75rem;
+}
+
+.offers-panel__meta {
+  margin: 0;
+  padding: 0 var(--bs-card-spacer-x) 0.75rem;
+}
+
+.offers-panel .scroll-area--table {
+  margin: 0 var(--bs-card-spacer-x) var(--bs-card-spacer-y);
+}
+
+.error-screen {
+  display: grid;
+  min-height: 100dvh;
+  place-items: center;
+  padding: 1.5rem;
+  overflow: auto;
+}
+
+.error-screen__card {
+  width: min(32rem, 100%);
+}
+
+/* --- controls --- */
+
+.form-control:hover:not(:disabled, :focus),
+.form-select:hover:not(:disabled, :focus) {
+  border-color: var(--bs-gray-500);
+}
+
+.list-group-item-action {
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.list-group-item-action:focus-visible {
+  z-index: 2;
+  outline: 0.125rem solid var(--bs-primary);
+  outline-offset: -0.125rem;
+}
+
+/* --- scroll --- */
+
+.scroll-area {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.scroll-area__clip {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.scroll-area__viewport {
+  box-sizing: border-box;
+  width: calc(100% + var(--scroll-native));
+  height: 100%;
+  padding-right: calc(var(--scroll-native) + var(--scroll-pad));
+  overflow: hidden scroll;
+  scrollbar-width: none;
+}
+
+.scroll-area__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-area__rail {
+  position: absolute;
+  top: var(--scroll-rail-inset);
+  right: 0.125rem;
+  bottom: var(--scroll-rail-inset);
+  width: var(--scroll-thumb);
+  pointer-events: none;
+}
+
+.scroll-area__thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 999rem;
+  background: var(--thumb-bg);
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+  transition: background-color 0.15s ease;
+}
+
+.scroll-area__thumb:hover {
+  background: var(--thumb-bg-hover);
+}
+
+.scroll-area__thumb:active {
+  cursor: grabbing;
+  background: var(--thumb-bg-active);
+}
+
+.scroll-area--table {
+  border: 0.0625rem solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+}
+
+.scroll-area--table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bs-body-bg);
+  box-shadow: inset 0 -0.0625rem 0 var(--bs-border-color);
+}
+
+.scroll-area--table tr.is-original {
+  background: var(--bs-primary-bg-subtle);
+}
+
+.scroll-area--table tbody tr:last-child > *,
+.scroll-area--list .list-group-item:last-child {
+  border-bottom-width: 0;
+}
+
+@media (width < 62rem) {
+  html,
+  body,
+  #root {
+    height: auto;
+  }
+
+  body {
+    overflow: visible;
+  }
+
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
+  .app-main,
+  .app-columns,
+  .app-columns__pane,
+  .app-columns .card,
+  .app-columns .card-body,
+  .card-panel,
+  .offers-panel {
+    flex: none;
+    overflow: visible;
+  }
+
+  .app-columns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scroll-area {
+    flex: none;
+    height: 24rem;
+  }
+
+  .scroll-area--table .scroll-area__viewport {
+    overflow: auto;
+  }
+
+  .scroll-area--table table {
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .scroll-area--table th,
+  .scroll-area--table td {
+    white-space: nowrap;
+  }
+}

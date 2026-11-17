@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#0d6efd"/>
+  <g fill="#fff" transform="translate(16 16)">
+    <circle r="5.25"/>
+    <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    <g transform="rotate(45)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <g transform="rotate(90)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <g transform="rotate(135)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <g transform="rotate(180)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <g transform="rotate(225)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <g transform="rotate(270)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <g transform="rotate(315)">
+      <rect x="-1.35" y="-11" width="2.7" height="7" rx="0.7"/>
+    </g>
+    <circle r="2.15" fill="#0d6efd"/>
+  </g>
+</svg>
